@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <title> Orders Page (Customer) </title>
+        <style>
+            body {
+                background-color: #E1FAF7;
+            }
+            nav {
+                background-color: black;
+            }
+            nav a {
+                display: inline-block;
+                padding: 14px 20px;
+                color: aliceblue;
+                text-decoration: none;
+            }
+            nav a:hover {
+                background-color: brown;
+                color: aliceblue;
+            }
+            button {
+                background-color: black;
+                color: aliceblue;
+            }
+            button:hover {
+                background-color: rgb(46, 43, 43);
+            }
+            .box {
+            background-color: whitesmoke;
+            margin: 10px;
+            margin-top: 5px;
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            }
+        </style>
+    </head>
+    <body id="home">
+        <nav>
+            <a href="{{ url_for('customer_home') }}"> HOME </a>
+            <a href="/buy"> BUY </a>
+            <a href="{{ url_for('orders_customer') }}"> ORDERS </a>
+            <a href="{{ url_for('index') }}"> LOGOUT </a>
+        </nav>
+        <center> <h2>Orders for Your Medicines</h2> </center>
+        <center> 
+            <table border="1">
+                <tr>
+                    <th>Order ID</th>
+                    <th>Medicine</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Date</th>
+                </tr>
+                {% for order in orders %}
+                <tr>
+                    <td>{{ order.order_id }}</td>
+                    <td>{{ order.medicine_name }}</td>
+                    <td>{{ order.quantity }}</td>
+                    <td>{{ order.price}}</td>
+                    <td>{{ order.order_date }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </center>
+        
+    </body>
+</html>
+
+<!-- used GPT for Script and table idea -->

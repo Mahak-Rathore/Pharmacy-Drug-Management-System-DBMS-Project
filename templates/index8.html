@@ -1,0 +1,155 @@
+<html>
+<head>
+    <title>Vendor Restock Page</title>
+    <style>
+        body {
+            background-color: #E1FAF7;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            background-color: black;
+        }
+        nav a {
+            display: inline-block;
+            padding: 14px 20px;
+            color: aliceblue;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: brown;
+            color: aliceblue;
+        }
+        button {
+            background-color: black;
+            color: aliceblue;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: rgb(46, 43, 43);
+        }
+
+        .content-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .box, .reference-table {
+            background-color: whitesmoke;
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            vertical-align: top;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 350px;
+        }
+
+        img {
+            height: 150px;
+            margin-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        table, th, td {
+            border: 1px solid #aaa;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #d3d3d3;
+        }
+
+        input[type="text"], input[type="date"] {
+            width: 100%;
+            padding: 6px;
+            margin: 4px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        h3 {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body id="home">
+    <nav>
+        <a href="{{ url_for('vendor_home') }}"> HOME </a>
+        <a href="#"> ADD </a> 
+        <a href="{{ url_for('restock') }}"> RESTOCK </a>
+        <a href="{{ url_for('orders_vendor') }}"> ORDERS </a>
+        <a href="{{ url_for('index') }}"> LOGOUT </a>
+    </nav>
+
+    <div class="content-wrapper">
+        <!-- Restock Form -->
+        <div class="box">
+            <form action="/restock" method="POST">
+                <div style="text-align: center;">
+                    <img src="{{ url_for('static', filename='pills.jpg') }}" alt="Image">
+                    <h3><b>Restock Medicine</b></h3>
+                </div>
+
+                <table>
+                    <tr><td><b>Medicine ID:</b></td><td><input type="text" name="medicine_id" required></td></tr>
+                    <tr><td><b>Medicine Name:</b></td><td><input type="text" name="medicine_name" required></td></tr>
+                    <tr><td><b>Manufacturer:</b></td><td><input type="text" name="manufacturer" required></td></tr>
+                    <tr><td><b>Manufacturing Date:</b></td><td><input type="date" name="mfg_date" required></td></tr>
+                    <tr><td><b>Stock Quantity:</b></td><td><input type="text" name="stock" min="1" required></td></tr>
+                    <tr><td><b>Price in ₹:</b></td><td><input type="text" name="price" step="0.01" min="0" required></td></tr>
+                    <tr><td><b>Vendor ID:</b></td><td><input type="text" name="vendor_id" required></td></tr>
+                </table>
+
+                <div style="text-align: center; margin-top: 15px;">
+                    <button type="submit">RESTOCK</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Reference Table -->
+        <div class="reference-table" style="text-align: center;">
+            <h3>Medicine Reference Table</h3>
+            <table>
+                <tr>
+                    <th>Medicine ID</th>
+                    <th>Medicine Name</th>
+                </tr>
+                <tr><td>M001</td><td>Aspirin</td></tr>
+                <tr><td>M002</td><td>Dolo650</td></tr>
+                <tr><td>M003</td><td>Crocin</td></tr>
+                <tr><td>M004</td><td>Rantac</td></tr>
+                <tr><td>M005</td><td>Zotac</td></tr>
+                <tr><td>M006</td><td>Paracetamol</td></tr>
+                <tr><td>M007</td><td>Omeprazole</td></tr>
+                <tr><td>M008</td><td>Metformin</td></tr>
+                <tr><td>M009</td><td>Ibuprofen</td></tr>
+                <tr><td>M010</td><td>Cetirizine</td></tr>
+                <tr><td>M011</td><td>Amoxicillin</td></tr>
+                <tr><td>M012</td><td>Azithromycin</td></tr>
+                <tr><td>M013</td><td>Ciprofloxacin</td></tr>
+                <tr><td>M014</td><td>Pantoprazole</td></tr>
+                <tr><td>M015</td><td>Levocetirizine</td></tr>
+                <tr><td>M016</td><td>Diclofenac</td></tr>
+            </table>
+        </div>
+        
+    </div>
+</body>
+</html>

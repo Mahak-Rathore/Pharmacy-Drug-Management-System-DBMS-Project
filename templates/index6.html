@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title> Vendor Homepage </title>
+        <style>
+            body {
+                background-color: #E1FAF7;
+            }
+            .container { 
+            background-color: rgb(250, 252, 254);
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            }
+            nav {
+                background-color: black;
+            }
+            nav a {
+                display: inline-block;
+                padding: 14px 20px;
+                color: aliceblue;
+                text-decoration: none;
+            }
+            nav a:hover {
+                background-color: brown;
+                color: aliceblue;
+            }
+        </style>
+    </head>
+    <body id="home">
+        <nav>
+            <a href="{{ url_for('vendor_home') }}"> HOME </a>
+            <!-- Replace ADD with the actual route if you create it -->
+            <a href="#"> ADD </a>  
+            <a href="{{ url_for('restock') }}"> RESTOCK </a>  
+            <a href="{{ url_for('orders_vendor') }}"> ORDERS </a>
+            <a href="{{ url_for('index') }}"> LOGOUT </a>
+        </nav>        
+        <br><br><br>
+        <center>
+            <div class="container">
+                <!-- Welcome Box -->
+                <div class="welcome-box">
+                    <h2>Welcome, {{ vendor.name }}</h2>
+                    <p><strong>Vendor ID:</strong> {{ vendor.vendor_id }}</p>
+                    <p><strong>Phone:</strong> {{ vendor.phone }}</p>
+                    <p><strong>Address:</strong> {{ vendor.address }}</p>
+                </div>
+                
+                <!-- Pharmacy Image -->
+                <div class="image-box">
+                    <img src="{{ url_for('static', filename='pharmacy-concept-vector.jpg') }}" style="width: 50%; height: auto;" alt="Image">
+                </div>
+            </div>
+        </center>
+    </body>
+</html>
+<!-- What I changed using GPT: href = '/,/orders-vendor, /restock, /add-medicine'-->
