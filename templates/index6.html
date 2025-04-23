@@ -39,17 +39,13 @@
         <center>
             <div class="container">
                 <!-- Welcome Box -->
-                <div class="welcome-box">
-                    <h2>Welcome, {{ vendor.name }}</h2>
-                    <p><strong>Vendor ID:</strong> {{ vendor.vendor_id }}</p>
-                    <p><strong>Phone:</strong> {{ vendor.phone }}</p>
-                    <p><strong>Address:</strong> {{ vendor.address }}</p>
-                </div>
-                
-                <!-- Pharmacy Image -->
-                <div class="image-box">
-                    <img src="{{ url_for('static', filename='pharmacy-concept-vector.jpg') }}" style="width: 70%; height: auto;" alt="Image">
-                </div>
+                    <div class="welcome-box">
+                        <h2>Welcome, {{ vendor.name }}</h2>
+                            <img src="{{ url_for('static', filename='noProfile.jpg') }}" alt="Image">
+                            <p><strong>Vendor ID:</strong> {{ vendor.vendor_id }}</p>
+                            <p><strong>Phone:</strong> {{ vendor.phone }}</p>
+                            <p><strong>Address:</strong> {{ vendor.address }}</p>
+                    </div>
             </div>
         </center>
     </body>
