@@ -40,19 +40,13 @@
                 <!-- Welcome Box -->
                 <div class="welcome-box">
                     <h2>Welcome, {{ customer.name }}</h2>
+                    <img src="{{ url_for('static', filename='noProfile.jpg') }}" alt="Image">
                     <p><strong>Customer ID:</strong> {{ customer.customer_id }}</p>
                     <p><strong>Phone:</strong> {{ customer.phone }}</p>
                     <p><strong>Address:</strong> {{ customer.address }}</p>
                 </div>
-                
-                <!-- Pharmacy Image -->
-                <div class="image-box">
-                    <img src="{{ url_for('static', filename='pharmacy-concept-vector.jpg') }}" style="width: 70%; height: auto;" alt="Image">
-                </div>
             </div>
         </center>
-        
-        
     </body>
 </html>
 
